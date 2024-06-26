@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'books_and_authors',
+    'registro_conductores'
 ]
 
 MIDDLEWARE = [
