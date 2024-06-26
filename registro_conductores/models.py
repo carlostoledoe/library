@@ -1,5 +1,5 @@
 from django.db import models
-import datetime
+from django.utils import timezone
 
 # Create your models here.
 def mayor18(value):
@@ -23,9 +23,9 @@ class Direccion(models.Model):
     region = models.CharField(max_length=50, choices=regiones)
     conductor = models.OneToOneField(Conductor, related_name='direccion', on_delete=models.CASCADE)
 
-    class Vehiculo(models.Model):
-        patente = models.CharField(max_length=10)
-        marca = models.CharField(max_length=50)
-        modelo = models.CharField(max_length=50)
-        año = models.DateField(default=datetime.date.today())
-        conductor = models.ForeignKey(Conductor, related_name='vehiculos', on_delete=models.CASCADE)
+class Vehiculo(models.Model):
+    patente = models.CharField(max_length=10)
+    marca = models.CharField(max_length=50)
+    modelo = models.CharField(max_length=50)
+    año = models.DateField(default=timezone.now)
+    conductor = models.ForeignKey(Conductor, related_name='vehiculos', on_delete=models.CASCADE)
