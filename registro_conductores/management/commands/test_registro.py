@@ -5,4 +5,5 @@ from registro_conductores.services import *
 
 class Command(BaseCommand):
     def handle(self, *args, **kwargs):
-        crear_conductor('María', 'Rojas', '2000-09-09')
+        # crear_conductor('María', 'Rojas', '2000-09-09')
+        agregar_direccion_a_conductor('Av. Rocadura', '1234', 'Piedradura', 'v', 1)

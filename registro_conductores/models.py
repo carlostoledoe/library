@@ -9,6 +9,9 @@ class Conductor(models.Model):
     nombre = models.CharField(max_length=50)
     apellido = models.CharField(max_length=50)
     fecha_nac = models.DateField(validators=[mayor18]) # Validar que sea mayor a 18 años
+    def  __str__(self):
+        return f'{self.nombre} {self.apellido}'
+
 
 class Direccion(models.Model):
     regiones = (
@@ -22,6 +25,8 @@ class Direccion(models.Model):
     comuna = models.CharField(max_length=50)
     region = models.CharField(max_length=50, choices=regiones)
     conductor = models.OneToOneField(Conductor, related_name='direccion', on_delete=models.CASCADE)
+    def  __str__(self):
+        return f'{self.calle} {self.numero}, {self.comuna}, {self.region}'
 
 class Vehiculo(models.Model):
     patente = models.CharField(max_length=10)
